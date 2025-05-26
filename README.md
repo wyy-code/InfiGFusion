@@ -1,6 +1,6 @@
-<h2 align="center">
+<h1 align="center">
 InfiGFusion: Graph-on-Logits Distillation via Efficient Gromov-Wasserstein for Model Fusion
-</h2>
+</h1>
 
 <h4 align="center">
 
