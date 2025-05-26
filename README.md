@@ -10,7 +10,7 @@ InfiGFusion: Graph-on-Logits Distillation via Efficient Gromov-Wasserstein for M
   
 </h4>
 
-InfiGFusion is the first structure-aware fusion framework for large language models that models semantic dependencies among logits using feature-level graphs. We introduce a novel Graph-on-Logits Distillation (GLD) loss that captures cross-dimension interactions via co-activation graphs and aligns them using an efficient, provable approximation of Gromov-Wasserstein distance (reducing complexity from $O(n^4)$ to $O(n \log n)$). Our released InfiGFusion-14B model consistently shows better fusion stability and performance, achieving +35.6 on Multistep Arithmetic and +37.06 on Causal Judgement over SFT, and outperforms SOTA fusion baselines across 11 benchmarks including reasoning, coding, and math.
+InfiGFusion is the first structure-aware fusion framework for large language models that models semantic dependencies among logits using feature-level graphs. We introduce a novel Graph-on-Logits Distillation (GLD) loss that captures cross-dimension interactions via co-activation graphs and aligns them using an efficient, provable approximation of Gromov-Wasserstein distance (reducing complexity from $O(n^4)$ to $O(n\logn)$). Our released InfiGFusion-14B model consistently shows better fusion stability and performance, achieving +35.6 on Multistep Arithmetic and +37.06 on Causal Judgement over SFT, and outperforms SOTA fusion baselines across 11 benchmarks including reasoning, coding, and math.
 
 ## 📣 News
 The ckpt model, InfiGFusion-14B, will be released on Huggingface after acceptance.
