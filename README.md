@@ -4,7 +4,7 @@ InfiGFusion: Graph-on-Logits Distillation via Efficient Gromov-Wasserstein for M
 
 <h4 align="center">
 
-[![Arxiv](https://img.shields.io/badge/arxiv-%23121011.svg?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2505.13893)|[HuggingFace](https://arxiv.org/pdf/2505.13893)
+[![Arxiv](https://img.shields.io/badge/Arxiv-D14836?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2505.13893)|[HuggingFace](https://arxiv.org/pdf/2505.13893)
   
 </h4>
 
