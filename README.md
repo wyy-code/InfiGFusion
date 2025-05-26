@@ -2,11 +2,11 @@
 InfiGFusion: Graph-on-Logits Distillation via Efficient Gromov-Wasserstein for Model Fusion
 </h2>
 
-<h5 align="center">
+<h3 align="center">
 
 [Arxiv](https://arxiv.org/pdf/2505.13893)
   
-</h5>
+</h3>
 
 
 ## 📣 News
