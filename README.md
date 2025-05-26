@@ -16,7 +16,7 @@ InfiGFusion: Graph-on-Logits Distillation via Efficient Gromov-Wasserstein for M
 The ckpt model, InfiGFusion-14B, will be released on Huggingface after acceptance.
 
 ## 🎨 Overview
-![InfiGFusion_framework](assets/InfiGFusion_framework.pdf)
+![InfiGFusion_framework](assets/framework.png)
 
 ## 🎯 Results
 ![InfiGFusion](assets/inference.png)
