@@ -15,6 +15,23 @@ InfiGFusion: Graph-on-Logits Distillation via Efficient Gromov-Wasserstein for M
 ## 📣 News
 The ckpt model, InfiGFusion-14B, will be released on Huggingface after acceptance.
 
+## 📕 Model Summary 
+
+|                         |                                                                               |     
+|-------------------------|-------------------------------------------------------------------------------|
+| **Developers**          | Reallm-Labs                                                            |
+| **Description**         | InfiGFusion is an open fusion model series designed to fuse multiple domain LLMs into a single LLM. It excels in multi-step and relational inference, enabling robust performance across complex reasoning tasks.|
+| **Architecture**        | 14B parameters, dense decoder-only Transformer model                          |
+| **Inputs**              | Text, best suited for prompts in the chat format                              |
+| **Max Context length**  | 16K tokens                                                                    |
+| **GPUs**                | 48 H100-80G                                                                 |
+| **Fusing input length**      | 4K tokens                                                           |
+| **Fusing time**       | 192 hours                                                                       |
+| **Fusing data**       | 520M tokens                                                                   |
+| **Outputs**             | Generated text in response to input                                           |
+| **Status**              | Static model trained on an offline dataset                                    |
+| **License**             | MIT                                                                         |
+
 ## 🎨 Overview
 ![InfiGFusion_framework](assets/framework.png)
 
