@@ -44,7 +44,7 @@ InfiGFusion: Graph-on-Logits Distillation via Efficient Gromov-Wasserstein for M
 We construct a novel multi-task training dataset comprising **130k curated examples** across three major domains: **general reasoning**, **mathematics**, and **code generation**.
 
 1. **General Reasoning (52K samples)**
-   Samples are sourced from the [Infinity-Instruct](https://arxiv.org/abs/2402.09652) dataset, a high-quality instruction-following corpus created through expert filtering.
+   Samples are sourced from the [Infinity-Instruct](https://huggingface.co/datasets/BAAI/Infinity-Instruct) dataset, a high-quality instruction-following corpus created through expert filtering.
 
 2. **Mathematics (39K samples)**
    Questions are drawn from the [NuminaMath-1.5](https://huggingface.co/datasets/AI-MO/NuminaMath-1.5) dataset—an advanced benchmark for competition-level math spanning Algebra, Geometry, Combinatorics, Calculus, Inequalities, Logic & Puzzles, and Number Theory.
