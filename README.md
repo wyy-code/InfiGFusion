@@ -81,9 +81,6 @@ For MBPP, we utilize EvalPlus for a more rigorous assessment of LLM-generated co
 | **GSM8K**     | `{question}\nPlease reason step by step, and put your final answer within \boxed{}.` |
 | **MATH**      | `{problem}\nPlease reason step by step, and put your final answer within \boxed{}.` |
 
-以下是将 `phi-4` 的描述改写为适用于 **InfiGFusion** 的版本，并补充说明其 **pivot model 是基于 phi-4** 的信息，格式保持一致，适合放在 GitHub `README.md` 的 **Usage** 部分：
-
----
 
 ## 🚀 Usage
 
