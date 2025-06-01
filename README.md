@@ -125,9 +125,50 @@ print(outputs[0]["generated_text"][-1])
 ## 🎯 Model Quality
 ![InfiGFusion](assets/inference.png)
 
+以下是为 **InfiGFusion** 项目撰写的结尾部分 **Responsible AI Considerations**，参考了 `phi-4` 的结构与语言风格，但内容更加契合你们的模型定位（结构感知、多模型融合框架），并避免完全重复原文措辞：
+
+---
+
+## ✅ Responsible AI Considerations
+
+Like other large language models, `InfiGFusion` may exhibit behaviors that raise concerns around fairness, safety, and reliability. While our fusion framework enhances reasoning and relational inference, the foundation models it integrates—including the pivot model `phi-4`—carry inherited limitations. Users should be aware of the following considerations:
+
+* **Language Coverage & Bias:**
+  InfiGFusion is primarily trained and evaluated on English datasets. Its performance on non-English inputs may be degraded. Moreover, any biases or stereotypes present in the underlying models or datasets may be preserved or amplified through the fusion process.
+
+* **Representation of Harms & Perpetuation of Stereotypes:**
+  The fused models may over- or under-represent certain groups or reinforce societal stereotypes. Although quality filters and alignment procedures are used, they cannot fully eliminate harmful representations due to real-world imbalances in the data sources.
+
+* **Content Safety:**
+  The model may generate inappropriate, offensive, or unsafe content, especially in unconstrained or adversarial inputs. It is not recommended for use in sensitive domains (e.g., mental health, legal advice) without additional safeguards.
+
+* **Fused Behavior Complexity:**
+  Due to the fusion of multiple distinct models, `InfiGFusion` may exhibit complex or emergent behaviors not present in any single model. This makes interpretability and debugging more challenging, especially in high-risk applications.
+
+* **Factuality & Hallucination:**
+  Like other generative models, `InfiGFusion` may produce convincing yet factually incorrect or outdated content. Developers should not rely on model output as a source of truth and are encouraged to integrate verification mechanisms such as Retrieval-Augmented Generation (RAG).
+
+* **Code Generation Limitations:**
+  While `InfiGFusion` includes training on code-related datasets, it may still produce invalid, unsafe, or incomplete code snippets. Outputs involving unfamiliar libraries or languages should be carefully reviewed before use.
+
+---
+
+### Developer Responsibilities
+
+Developers using `InfiGFusion` are encouraged to:
+
+* **Evaluate outputs contextually**, particularly for fairness, accuracy, and safety.
+* **Follow all applicable laws and regulations**, including those relating to privacy, trade compliance, and data use.
+* **Avoid deployment in high-stakes decision-making** (e.g., employment, finance, law enforcement) without extensive validation and domain-specific safeguards.
+* **Implement content filtering and feedback mechanisms**, and consider integrating external safety services such as [Azure AI Content Safety](https://azure.microsoft.com/en-us/products/ai-services/ai-content-safety) or custom classifiers.
+* **Clearly disclose to users** that they are interacting with an AI system, following transparency and responsible AI best practices.
+
+By using this model, you agree to evaluate and manage risks responsibly and ensure your applications align with ethical and regulatory expectations.
+
+
 ## 🗒️ BibTex Citation
 
-If you find this repository helpful, please consider citing our work. Thanks a lot~
+If you find this work helpful, feel free to give us a cite.
 
 ```bigquery
 @article{wang2025infigfusion,
