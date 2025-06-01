@@ -2,18 +2,11 @@
 InfiGFusion: Graph-on-Logits Distillation via Efficient Gromov-Wasserstein for Model Fusion
 </h1>
 
-<h4 align="center">
-
-[![Arxiv](https://img.shields.io/badge/Arxiv-D14836?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2505.13893) 
-[![HuggingFace](https://img.shields.io/badge/HuggingFace-FF9900?style=for-the-badge&logo=huggingface&logoColor=white)](https://arxiv.org/pdf/2505.13893)
-[![HuggingFace Model](https://img.shields.io/badge/HuggingFace%20Model-FF9900?style=for-the-badge&logo=huggingface&logoColor=white)](https://arxiv.org/pdf/2505.13893)
-  
-</h4>
 
 **InfiGFusion** is the first structure-aware fusion framework for large language models that models semantic dependencies among logits using feature-level graphs. We introduce a novel Graph-on-Logits Distillation (GLD) loss that captures cross-dimension interactions via co-activation graphs and aligns them using an efficient, provable approximation of Gromov-Wasserstein distance (reducing complexity from O(n^4) to O(nlogn)). Our released **InfiGFusion-14B** model consistently shows better performance, achieving +35.6 on Multistep Arithmetic and +37.06 on Causal Judgement over SFT, demonstrating superior multi-step and complex logic inference.
 
 ## 🎉 News
-🎉 The ckpt model, InfiGFusion-14B, has been released on Huggingface! ! !
+🎉 The ckpt model, InfiGFusion-14B, has been released ! ! !
 
 ## 🎨 Fusion Framework
 ![InfiGFusion_framework](assets/framework.png)
@@ -22,7 +15,6 @@ InfiGFusion: Graph-on-Logits Distillation via Efficient Gromov-Wasserstein for M
 
 |                         |                                                                               |     
 |-------------------------|-------------------------------------------------------------------------------|
-| **Developers**          | Reallm-Labs                                                                   |
 | **Description**         | InfiGFusion is an open fusion model series designed to fuse multiple domain LLMs into a single LLM. It excels in multi-step and relational inference, enabling robust performance across complex reasoning tasks.|
 | **Architecture**        | 14B parameters, dense decoder-only Transformer model                          |
 | **Inputs**              | Text, best suited for prompts in the chat format                              |
@@ -160,17 +152,3 @@ Developers using `InfiGFusion` are encouraged to:
 * **Clearly disclose to users** that they are interacting with an AI system, following transparency and responsible AI best practices.
 
 By using this model, you agree to evaluate and manage risks responsibly and ensure your applications align with ethical and regulatory expectations.
-
-
-## 🗒️ BibTex Citation
-
-If you find this work helpful, feel free to give us a cite.
-
-```bigquery
-@article{wang2025infigfusion,
-  title={InfiGFusion: Graph-on-Logits Distillation via Efficient Gromov-Wasserstein for Model Fusion},
-  author={Wang, Yuanyi and Yan, Zhaoyi and Zhang, Yiming and Zhou, Qi and Gu, Yanggan and Wu, Fei and Yang, Hongxia},
-  journal={arXiv preprint arXiv:2505.13893},
-  year={2025}
-}
-```
