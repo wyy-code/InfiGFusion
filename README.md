@@ -15,11 +15,14 @@ InfiGFusion: Graph-on-Logits Distillation via Efficient Gromov-Wasserstein for M
 ## 🎉 News
 🎉 The ckpt model, InfiGFusion-14B, has been released on Huggingface! ! !
 
+## 🎨 Fusion Framework
+![InfiGFusion_framework](assets/framework.png)
+
 ## 📕 Model Summary 
 
 |                         |                                                                               |     
 |-------------------------|-------------------------------------------------------------------------------|
-| **Developers**          | Reallm-Labs                                                            |
+| **Developers**          | Reallm-Labs                                                                   |
 | **Description**         | InfiGFusion is an open fusion model series designed to fuse multiple domain LLMs into a single LLM. It excels in multi-step and relational inference, enabling robust performance across complex reasoning tasks.|
 | **Architecture**        | 14B parameters, dense decoder-only Transformer model                          |
 | **Inputs**              | Text, best suited for prompts in the chat format                              |
@@ -51,7 +54,7 @@ We construct a novel multi-task training dataset comprising **130k curated examp
    Answers are distilled from the [DeepSeek-R1-671B](https://huggingface.co/datasets/a-m-team/AM-DeepSeek-R1-Distilled-1.4M) model by the AM team.
 
 3. **Code Generation (39K samples)**
-   We used [KodCode-V1-SFT-R1](https://arxiv.org/abs/2405.17300), a dataset with 268K code samples. Each example was processed by our pivot model to generate five completions. These were sandbox-evaluated, and samples where at least one generation failed were flagged. From these, we filtered and distilled 39K high-quality examples.
+   We used [KodCode-V1-SFT-R1](https://huggingface.co/mlfoundations-dev/KodCode-V1-SFT-R1_300k_batch_size_512), a dataset with 268K code samples. Each example was processed by our pivot model to generate five completions. These were sandbox-evaluated, and samples where at least one generation failed were flagged. From these, we filtered and distilled 39K high-quality examples.
 
 
 | **Type**          | **General**       | **Math**       | **Code**          |
@@ -60,10 +63,67 @@ We construct a novel multi-task training dataset comprising **130k curated examp
 | **Original Size** | 1.4M              | 1.4M           | 268K              |
 | **Filtered Size** | 52K               | 39K            | 39K               |
 
+#### Benchmark evaluation 
+
+To enhance the robustness of answer extraction under the regex-based evaluation framework of[OpenCompass](https://github.com/open-compass/opencompass) and [EvalPlus](https://github.com/evalplus/evalplus), we systematically refine the prompts used in several benchmark datasets. These tailored prompt formats are designed to facilitate precise output matching, mitigating ambiguities that often arise from model generations. The revised prompt templates corresponding to each dataset are presented in the following Table, which details how task instructions and answer formats are standardized to align with OpenCompass's automatic evaluation pipeline.
+
+For datasets such as TheoremQA and HumanEval, we retain the original prompt configurations, adhering to their respective community-adopted evaluation protocols. This ensures consistency with prior works and preserves the validity of established benchmarks.
+For MBPP, we utilize EvalPlus for a more rigorous assessment of LLM-generated code, providing enhanced reliability in functional correctness evaluation, more specifically: 
+
+| **Benchmark**   | **Prompt Format**  |
+| ------------- | ----------------------------------|
+| **IFEval**    | `{prompt}\nPlease directly give the correct answer:`  |
+| **ARC-C**     | `Question: {question}\nA. {textA}\nB. {textB}\nC. {textC}\nD. {textD}\nDirectly give me the correct answer option, and then explain:`  |
+| **Hellaswag** | `{ctx}\nQuestion: Which ending makes the most sense?\nDirectly give me the correct choice, you can further explain it or not.\nA. {A}\nB. {B}\nC. {C}\nD. {D}\nYou may choose from 'A', 'B', 'C', 'D'.\nAnswer:`                                                        |
+| **BBH**       | `Follow the given examples and answer the question.\n{_hint}\nQ: {input}\nA: Let's think step by step.` |
+| **DROP**      | `You will be asked to read a passage and answer a question. Some examples of passages and Q&A are provided below.\n{drop_examples}\n\n# Your Task\n---\n{prompt}\nThink step by step, then write a line of the form "Answer: $ANSWER" at the end of your response.`   |
+| **MMLU**      | `{_hint}\nQuestion: {input}\nA. {A}\nB. {B}\nC. {C}\nD. {D}\n\nFor simple problems:\nDirectly provide the answer with minimal explanation.\n\nFor complex problems:\nUse this step-by-step format:\n## Step 1: [Concise description]\n[Brief explanation]\n## Step 2: [Concise description]\n[Brief explanation]\n\nRegardless of the approach, always conclude with:\nThe answer is [the_answer_letter].\nwhere the [the_answer_letter] is one of A, B, C or D.\n\nLet's think step by step.` |
+| **GSM8K**     | `{question}\nPlease reason step by step, and put your final answer within \boxed{}.` |
+| **MATH**      | `{problem}\nPlease reason step by step, and put your final answer within \boxed{}.` |
+
+以下是将 `phi-4` 的描述改写为适用于 **InfiGFusion** 的版本，并补充说明其 **pivot model 是基于 phi-4** 的信息，格式保持一致，适合放在 GitHub `README.md` 的 **Usage** 部分：
+
+---
+
+## 🚀 Usage
+
+### Input Formats
+
+Our fusion process uses [phi-4](https://huggingface.co/microsoft/phi-4) as the **pivot model**, and thus **InfiGFusion shares the same prompt format and usage style** as `phi-4`.
+
+Given the nature of the training data, `InfiGFusion` performs best when used with prompts in the following chat-style format:
+
+```bash
+<|im_start|>system<|im_sep|>
+You are a medieval knight and must provide explanations to modern people.<|im_end|>
+<|im_start|>user<|im_sep|>
+How should I explain the Internet?<|im_end|>
+<|im_start|>assistant<|im_sep|>
+```
+
+### With `transformers`
+
+```python
+import transformers
+
+pipeline = transformers.pipeline(
+    "text-generation",
+    model="InfiGFusion",  # replace with actual model path
+    model_kwargs={"torch_dtype": "auto"},
+    device_map="auto",
+)
+
+messages = [
+    {"role": "system", "content": "You are a medieval knight and must provide explanations to modern people."},
+    {"role": "user", "content": "How should I explain the Internet?"},
+]
+
+outputs = pipeline(messages, max_new_tokens=1024)
+print(outputs[0]["generated_text"][-1])
+```
+
+> 📌 *Note: Since InfiGFusion uses `phi-4` as its pivot model during fusion, it inherits many of its usage patterns and prompt compatibility features.*
 
 
-## 🎨 Overview
-![InfiGFusion_framework](assets/framework.png)
-
-## 🎯 Results
+## 🎯 Model Quality
 ![InfiGFusion](assets/inference.png)
