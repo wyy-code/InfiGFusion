@@ -157,7 +157,6 @@ Developers using `InfiGFusion` are encouraged to:
 * **Evaluate outputs contextually**, particularly for fairness, accuracy, and safety.
 * **Follow all applicable laws and regulations**, including those relating to privacy, trade compliance, and data use.
 * **Avoid deployment in high-stakes decision-making** (e.g., employment, finance, law enforcement) without extensive validation and domain-specific safeguards.
-* **Implement content filtering and feedback mechanisms**, and consider integrating external safety services such as [Azure AI Content Safety](https://azure.microsoft.com/en-us/products/ai-services/ai-content-safety) or custom classifiers.
 * **Clearly disclose to users** that they are interacting with an AI system, following transparency and responsible AI best practices.
 
 By using this model, you agree to evaluate and manage risks responsibly and ensure your applications align with ethical and regulatory expectations.
