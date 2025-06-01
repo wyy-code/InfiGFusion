@@ -125,9 +125,6 @@ print(outputs[0]["generated_text"][-1])
 ## 🎯 Model Quality
 ![InfiGFusion](assets/inference.png)
 
-以下是为 **InfiGFusion** 项目撰写的结尾部分 **Responsible AI Considerations**，参考了 `phi-4` 的结构与语言风格，但内容更加契合你们的模型定位（结构感知、多模型融合框架），并避免完全重复原文措辞：
-
----
 
 ## ✅ Responsible AI Considerations
 
