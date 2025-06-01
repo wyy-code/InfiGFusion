@@ -124,3 +124,16 @@ print(outputs[0]["generated_text"][-1])
 
 ## 🎯 Model Quality
 ![InfiGFusion](assets/inference.png)
+
+## 🗒️ BibTex Citation
+
+If you find this repository helpful, please consider citing our work. Thanks a lot~
+
+```bigquery
+@article{wang2025infigfusion,
+  title={InfiGFusion: Graph-on-Logits Distillation via Efficient Gromov-Wasserstein for Model Fusion},
+  author={Wang, Yuanyi and Yan, Zhaoyi and Zhang, Yiming and Zhou, Qi and Gu, Yanggan and Wu, Fei and Yang, Hongxia},
+  journal={arXiv preprint arXiv:2505.13893},
+  year={2025}
+}
+```
