@@ -28,7 +28,7 @@ InfiGFusion: Graph-on-Logits Distillation via Efficient Gromov-Wasserstein for M
 | **Inputs**              | Text, best suited for prompts in the chat format                              |
 | **Max Context length**  | 16K tokens                                                                    |
 | **Fusing input length** | 4K tokens                                                           |
-| **Fusing time**         | 192 hours                                                                       |
+| **Fusing time**         | 195 hours                                                                       |
 | **Fusing data**         | 520M tokens                                                                   |
 | **Outputs**             | Generated text in response to input                                           |
 | **Status**              | Static model trained on an offline dataset                                    |
